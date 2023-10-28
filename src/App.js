@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Countries from "./components/Country/Countries";
+import "./App.css";
+import { dummy_countries } from "./data/data";
+import NewCountry from "./components/NewCountry/NewCountry";
 
-function App() {
+const App = () => {
+  const [countries, setCountries] = useState(dummy_countries);
+
+  console.log("Data:", countries);
+  console.log("Paises:", { countries });
+
+  const addNewCountryHandler = (newCountry) => {
+    console.log(111, newCountry)
+    setCountries((listCountries) => [...listCountries, newCountry]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="contry-title"> Listado de Paises</h1>
+      <NewCountry onAddCountry={addNewCountryHandler} />
+      <Countries data={countries} />
     </div>
   );
-}
+};
 
 export default App;

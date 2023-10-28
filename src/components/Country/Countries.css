@@ -1,0 +1,11 @@
+.contry-list {
+  list-style: none;
+  margin: 1rem;
+  padding: 0;
+}
+
+.contry-list li {
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
